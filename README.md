@@ -1,8 +1,8 @@
 # OYOTEE E-COMMERCE
 
-The platform is live on Netlify - [https://oyotee.netlify.app](https://oyotee.netlify.app/)
+The app is live on Netlify here - [https://oyotee.netlify.app](https://oyotee.netlify.app/)
 
-![image](https://user-images.githubusercontent.com/26389470/169623160-e023548d-5c1b-46c4-9977-fc9712d8e177.png)
+![image](https://user-images.githubusercontent.com/26389470/169659667-a244478e-8997-4d05-8b15-d2bcb900406f.png)
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
