@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 
 export interface ICategory {
   id: number;
@@ -13,6 +13,11 @@ export interface IProductReviews {
   name: string;
   review: string;
 }
+
+export interface IImage {
+  id?: number;
+  url?: string;
+}
 export interface IProduct {
   id: number;
   name: string;
@@ -22,7 +27,7 @@ export interface IProduct {
   rating: number;
   likes: number;
   createdAt: Date;
-  images: string[];
+  images: IImage[];
   relevance: number;
   details?: IProductDetails;
   reviews: IProductReviews[];
@@ -72,12 +77,17 @@ export const products: IProduct[] = [
     rating: 4,
     likes: 0,
     createdAt: new Date(),
-    images: [],
+    images: [
+      { id: 1, url: "./images/plant_1.png" },
+      { id: 2, url: "./images/plant_2.png" },
+      { id: 3, url: "./images/plant_1.png" },
+    ],
     relevance: 1,
     details: {
       height: 120,
       width: 50,
-      description: "Anima Save",
+      description:
+        " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis aspernatur, omnis placeat laborum, corrupti rerum velit illum, tenetur exercitationem animi odio eum harum sunt cum beatae? Voluptatibus voluptates distinctio cumque.",
     },
     reviews: [
       {
@@ -119,12 +129,17 @@ export const products: IProduct[] = [
     rating: 4,
     likes: 0,
     createdAt: new Date(),
-    images: [],
+    images: [
+      { id: 1, url: "./images/plant_2.png" },
+      { id: 2, url: "./images/plant_1.png" },
+      { id: 3, url: "./images/plant_1.png" },
+    ],
     relevance: 1,
     details: {
       height: 120,
       width: 50,
-      description: "Anima Save",
+      description:
+        " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis aspernatur, omnis placeat laborum, corrupti rerum velit illum, tenetur exercitationem animi odio eum harum sunt cum beatae? Voluptatibus voluptates distinctio cumque.",
     },
     reviews: [
       {
@@ -166,12 +181,17 @@ export const products: IProduct[] = [
     rating: 4,
     likes: 0,
     createdAt: new Date(),
-    images: [],
+    images: [
+      { id: 1, url: "./images/plant_1.png" },
+      { id: 2, url: "./images/plant_2.png" },
+      { id: 3, url: "./images/plant_1.png" },
+    ],
     relevance: 1,
     details: {
       height: 120,
       width: 50,
-      description: "Anima Save",
+      description:
+        " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis aspernatur, omnis placeat laborum, corrupti rerum velit illum, tenetur exercitationem animi odio eum harum sunt cum beatae? Voluptatibus voluptates distinctio cumque.",
     },
     reviews: [
       {
@@ -213,12 +233,17 @@ export const products: IProduct[] = [
     rating: 4,
     likes: 0,
     createdAt: new Date(),
-    images: [],
+    images: [
+      { id: 1, url: "./images/plant_1.png" },
+      { id: 2, url: "./images/plant_2.png" },
+      { id: 3, url: "./images/plant_1.png" },
+    ],
     relevance: 1,
     details: {
       height: 120,
       width: 50,
-      description: "Anima Save",
+      description:
+        " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis aspernatur, omnis placeat laborum, corrupti rerum velit illum, tenetur exercitationem animi odio eum harum sunt cum beatae? Voluptatibus voluptates distinctio cumque.",
     },
     reviews: [
       {
@@ -260,12 +285,17 @@ export const products: IProduct[] = [
     rating: 4,
     likes: 0,
     createdAt: new Date(),
-    images: [],
+    images: [
+      { id: 1, url: "./images/plant_1.png" },
+      { id: 2, url: "./images/plant_2.png" },
+      { id: 3, url: "./images/plant_1.png" },
+    ],
     relevance: 1,
     details: {
       height: 120,
       width: 50,
-      description: "Anima Save",
+      description:
+        " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis aspernatur, omnis placeat laborum, corrupti rerum velit illum, tenetur exercitationem animi odio eum harum sunt cum beatae? Voluptatibus voluptates distinctio cumque.",
     },
     reviews: [
       {
