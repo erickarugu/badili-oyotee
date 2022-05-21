@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import plant from "./../../dist/images/plant_bg.jpg";
 
 export const SideBarWrapper = styled.div`
   max-width: 20rem;
@@ -34,7 +33,7 @@ export const SideBarWrapper = styled.div`
 `;
 
 export const AdBanner = styled.div`
-  background-image: url(${plant});
+  background-image: url(${"./images/plant_bg.jpg"});
   background-color: rgba(0, 0, 0, 0.6);
   background-size: auto;
   background-position: center;
