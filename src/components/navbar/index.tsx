@@ -2,7 +2,11 @@ import React from "react";
 import { Container, Nav } from "react-bootstrap";
 import { BootstrapNavbar, ProfileWrapper } from "./__styled__";
 
-const Navbar = () => {
+interface INavbarProps {
+  cart: number[];
+  favs: number[];
+}
+const Navbar: React.FC<INavbarProps> = ({ favs, cart }) => {
   return (
     <BootstrapNavbar className="mb-0 pb-0" bg="white" expand="lg">
       <Container fluid style={{ borderBottom: "1px solid var(--gray)" }}>
@@ -45,7 +49,9 @@ const Navbar = () => {
                 className="d-inline-block"
                 alt="Bag"
               />
-              <span className="counter text-white font-weight-bold">3</span>
+              <span className="counter text-white font-weight-bold">
+                {cart.length}
+              </span>
             </span>
             <span className="profile__heart cursor-pointer mx-3">
               <img
@@ -54,7 +60,9 @@ const Navbar = () => {
                 className="d-inline-block"
                 alt="Heart"
               />
-              <span className="counter text-white font-weight-bold">10</span>
+              <span className="counter text-white font-weight-bold">
+                {favs.length}
+              </span>
             </span>
             <span className="profile__avatar mx-3">
               <img

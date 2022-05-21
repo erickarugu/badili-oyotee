@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
+import Skeleton from "react-loading-skeleton";
 import { fetchCategories, IFilterProducts } from "../../api";
 import { ICategory } from "../../api/data";
 import { Button, StarRating } from "../common";
@@ -10,13 +11,16 @@ interface ISideBarProps {
   updateValues: (input: any) => void;
 }
 const SideBar: React.FC<ISideBarProps> = ({ filters, updateValues }) => {
+  const [loading, setLoading] = useState<boolean>(true);
   const [categories, setCategories] = useState<ICategory[]>();
 
   useEffect(() => {
+    setLoading(true);
     const fetchData = () => {
       setTimeout(() => {
         const categories = fetchCategories();
         setCategories(categories);
+        setLoading(false);
       }, 3000);
     };
     fetchData();
@@ -28,22 +32,34 @@ const SideBar: React.FC<ISideBarProps> = ({ filters, updateValues }) => {
       <hr />
       <div className="categories ps-5">
         <h6 className="mb-2">Categories</h6>
-        {categories?.map((category: ICategory, idx: number) => (
-          <div
-            className="category d-flex align-items-center my-1"
-            key={`cat-${idx}-${category.id}`}
-          >
-            <input
-              onChange={() => updateValues({ categoryId: category.id })}
-              type="checkbox"
-              id={`${idx}`}
-            />
-            <label htmlFor={`${idx}`} className="">
-              <span className="custom-checkbox"></span>
-              <span>{category.name}</span>
-            </label>
-          </div>
-        ))}
+        {loading
+          ? [1, 2, 3, 4, 5, 6, 7].map((el: number) => (
+              <div key={`skel-${el}`} className="my-3 me-5">
+                <Skeleton borderRadius={"0.5rem"} />
+              </div>
+            ))
+          : categories?.map((category: ICategory, idx: number) => (
+              <div
+                className="category d-flex align-items-center my-1"
+                key={`cat-${idx}-${category.id}`}
+              >
+                <input
+                  onChange={() => {
+                    const temp = filters.categoryIds ?? [];
+                    const id = category.id;
+                    updateValues({
+                      categoryIds: [...temp, id],
+                    });
+                  }}
+                  type="checkbox"
+                  id={`${idx}`}
+                />
+                <label htmlFor={`${idx}`} className="">
+                  <span className="custom-checkbox"></span>
+                  <span>{category.name}</span>
+                </label>
+              </div>
+            ))}
       </div>
       <hr />
       <div className="price ps-5 pe-5 py-2">

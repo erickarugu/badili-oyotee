@@ -130,7 +130,7 @@ export const products: IProduct[] = [
     likes: 0,
     createdAt: new Date(),
     images: [
-      { id: 1, url: "./images/plant_2.png" },
+      { id: 1, url: "./images/plant_1.png" },
       { id: 2, url: "./images/plant_1.png" },
       { id: 3, url: "./images/plant_1.png" },
     ],
@@ -234,7 +234,7 @@ export const products: IProduct[] = [
     likes: 0,
     createdAt: new Date(),
     images: [
-      { id: 1, url: "./images/plant_1.png" },
+      { id: 1, url: "./images/plant_2.png" },
       { id: 2, url: "./images/plant_2.png" },
       { id: 3, url: "./images/plant_1.png" },
     ],
