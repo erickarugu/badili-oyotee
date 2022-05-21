@@ -10,6 +10,10 @@ interface IImageListProps {
   products: IProduct[];
   activeProduct: IProduct | null;
   setActiveProduct: (input: any) => void;
+  setFavs: (input: any) => void;
+  setCart: (input: any) => void;
+  cart: number[];
+  favs: number[];
 }
 
 const ImageList: React.FC<IImageListProps> = ({
@@ -17,6 +21,10 @@ const ImageList: React.FC<IImageListProps> = ({
   products,
   activeProduct,
   setActiveProduct,
+  cart,
+  favs,
+  setCart,
+  setFavs,
 }) => {
   const [searchStr, setSearchStr] = useState<string>("");
 
@@ -34,6 +42,11 @@ const ImageList: React.FC<IImageListProps> = ({
         setActiveProduct={setActiveProduct}
         activeProduct={activeProduct}
         products={products}
+        loading={loading}
+        setCart={setCart}
+        setFavs={setFavs}
+        cart={cart}
+        favs={favs}
       />
     </ImageListWrapper>
   );

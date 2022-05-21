@@ -1,12 +1,22 @@
 import styled from "styled-components";
 
-export const CardsWrapper = styled.div``;
+export const CardsWrapper = styled.div`
+  .skel {
+    flex-grow: 1;
+    min-width: 280px;
+    max-width: 350px;
+    height: 300px;
+    border: 1px solid var(--gray);
+    border-radius: 1rem;
+  }
+`;
 export const CardWrapper = styled.div`
   flex-grow: 1;
   min-width: 280px;
   max-width: 400px;
-  border: 1px solid var(--gray);
+  border: 1px solid var(--dark-gray);
   border-radius: 1rem;
+
   &.active {
     border: 1px solid var(--primary-green);
   }
@@ -33,6 +43,16 @@ export const CardWrapper = styled.div`
     }
     img {
       max-width: 200px;
+    }
+  }
+  .cart {
+    .btn.custom {
+      border: 1px solid var(--dark-gray);
+      border-radius: 1rem;
+      &.added {
+        color: var(--white);
+        background: var(--primary-green);
+      }
     }
   }
 `;
