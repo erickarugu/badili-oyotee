@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { ImageCarouselWrapper } from "./__styled__";
-import plant from "./../../dist/images/plant_1.png";
 import { IImage, IProduct } from "../../api/data";
 
 interface IImageCarouselProps {
@@ -59,7 +58,7 @@ const ImageCarousel: React.FC<IImageCarouselProps> = ({
 
         <span className="carousel__image d-flex align-items-center justify-content-center mx-2 more">
           <img
-            src={plant}
+            src={"./images/plant_1.png"}
             width="50"
             className="d-inline-block align-top"
             alt="Oyotee Logo"

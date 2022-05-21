@@ -1,9 +1,4 @@
 import React from "react";
-import logo from "./../../dist/images/leaf_logo.png";
-import user from "./../../dist/images/user.jpg";
-import bag from "./../../dist/icons/bag.png";
-import heart from "./../../dist/icons/heart.png";
-
 import { Container, Nav } from "react-bootstrap";
 import { BootstrapNavbar, ProfileWrapper } from "./__styled__";
 
@@ -13,7 +8,7 @@ const Navbar = () => {
       <Container fluid style={{ borderBottom: "1px solid var(--gray)" }}>
         <BootstrapNavbar.Brand href="#home">
           <img
-            src={logo}
+            src={"./images/leaf_logo.png"}
             width="50"
             className="d-inline-block align-top"
             alt="Oyotee Logo"
@@ -44,12 +39,17 @@ const Navbar = () => {
           </Nav>
           <ProfileWrapper className="profile d-flex align-items-center justify-content-evenly">
             <span className="profile__cart mx-3">
-              <img src={bag} width="30" className="d-inline-block" alt="Bag" />
+              <img
+                src={"./icons/bag.png"}
+                width="30"
+                className="d-inline-block"
+                alt="Bag"
+              />
               <span className="counter text-white font-weight-bold">3</span>
             </span>
             <span className="profile__heart cursor-pointer mx-3">
               <img
-                src={heart}
+                src={"./icons/heart.png"}
                 width="30"
                 className="d-inline-block"
                 alt="Heart"
@@ -58,7 +58,7 @@ const Navbar = () => {
             </span>
             <span className="profile__avatar mx-3">
               <img
-                src={user}
+                src={"./images/user.jpg"}
                 width="35"
                 className="d-inline-block"
                 alt="User"
