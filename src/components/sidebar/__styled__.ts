@@ -19,7 +19,7 @@ export const SideBarWrapper = styled.div`
       min-width: 1rem;
       min-height: 1rem;
       margin-right: 0.75em;
-      border: 2px solid var(--gray);
+      border: 2px solid var(--dark-gray);
       border-radius: 0.1rem;
       display: inline-block;
       margin-top: 0.4rem;

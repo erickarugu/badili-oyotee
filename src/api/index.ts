@@ -1,9 +1,9 @@
 import { categories, ICategory, IProduct, products } from "./data";
 
-enum DateOrder {
-  DESC = "desc",
-  ASC = "asc",
-}
+// enum DateOrder {
+//   DESC = "desc",
+//   ASC = "asc",
+// }
 export interface IFilterProducts {
   rating?: number;
   minPrice?: number;
@@ -11,18 +11,16 @@ export interface IFilterProducts {
   categoryId?: number;
 }
 
-interface ISortProducts {
-  relevance?: boolean;
-  date?: DateOrder;
-}
+// interface ISortProducts {
+//   relevance?: boolean;
+//   date?: DateOrder;
+// }
 export const fetchCategories = (): ICategory[] => {
   return categories;
 };
 
 export const fetchProducts = () => {
-  setTimeout(() => {
-    return products;
-  }, 3000);
+  return products;
 };
 
 export const filterProducts = (input: IFilterProducts) => {

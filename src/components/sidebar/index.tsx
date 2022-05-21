@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
-// import { Button } from "react-bootstrap";
 import { fetchCategories, IFilterProducts } from "../../api";
 import { ICategory } from "../../api/data";
 import { Button, StarRating } from "../common";
 import { AdBanner, SideBarWrapper } from "./__styled__";
 
-const SideBar = () => {
+interface ISideBarProps {
+  filters: IFilterProducts;
+  updateValues: (input: any) => void;
+}
+const SideBar: React.FC<ISideBarProps> = ({ filters, updateValues }) => {
   const [categories, setCategories] = useState<ICategory[]>();
-  const [filters, setFilters] = useState<IFilterProducts>();
 
   useEffect(() => {
     const fetchData = () => {
@@ -20,9 +22,6 @@ const SideBar = () => {
     fetchData();
   }, []);
 
-  const updateValues = (input: any) => {
-    setFilters((prevState) => ({ ...prevState, ...input }));
-  };
   return (
     <SideBarWrapper className="sidebar mb-4">
       <h5 className="pt-4 ms-5 font-weight-lighter">Filter</h5>
