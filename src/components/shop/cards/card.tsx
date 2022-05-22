@@ -75,7 +75,9 @@ const Card: React.FC<ICardProps> = ({
           <p className="my-0">${product.price}</p>
         </div>
         <button
-          className={`btn custom ${cart.includes(product.id) ? "added" : ""}`}
+          className={`btn py-2 custom ${
+            cart.includes(product.id) ? "added" : ""
+          }`}
           onClick={(e) => handleCartClick(e, product.id)}
         >
           {cart.includes(product.id) ? "Remove" : "Add to cart"}

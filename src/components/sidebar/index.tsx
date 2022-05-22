@@ -45,10 +45,15 @@ const SideBar: React.FC<ISideBarProps> = ({ filters, updateValues }) => {
               >
                 <input
                   onChange={() => {
-                    const temp = filters.categoryIds ?? [];
+                    let temp: number[] = filters.categoryIds ?? [];
                     const id = category.id;
+                    if (temp.includes(id)) {
+                      temp = temp.filter((catId: number) => catId !== id);
+                    } else {
+                      temp = [...temp, id];
+                    }
                     updateValues({
-                      categoryIds: [...temp, id],
+                      categoryIds: [...temp],
                     });
                   }}
                   type="checkbox"

@@ -6,6 +6,14 @@ import { ImageCarousel, ImageList } from "../../components/shop";
 import SideBar from "../../components/sidebar";
 import { ContentWrapper, MainWrapper, ShopWrapper } from "./__styled__";
 
+function removeEmpty(obj: any) {
+  return Object.fromEntries(
+    Object.entries(obj).filter(
+      ([_, v]) => v !== null && v !== "" && v !== undefined && v !== []
+    )
+  );
+}
+
 const Shop = () => {
   const [filters, setFilters] = useState<IFilterProducts>({});
   const [activeProduct, setActiveProduct] = useState<IProduct | null>(null);
@@ -36,8 +44,9 @@ const Shop = () => {
     const fetchData = () => {
       setTimeout(() => {
         let prods: IProduct[];
-        Object.values(filters).length
-          ? (prods = filterProducts(filters))
+        const tempFilters = removeEmpty(filters);
+        Object.values(tempFilters).length
+          ? (prods = filterProducts(tempFilters))
           : (prods = fetchProducts());
         setProducts(prods);
         setLoading(false);

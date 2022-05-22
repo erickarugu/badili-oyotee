@@ -26,14 +26,14 @@ export const fetchProducts = () => {
 export const filterProducts = (input: IFilterProducts) => {
   const arr: IProduct[] = products;
   return arr.filter((product: IProduct) => {
-    let status = false;
+    let status = true;
     if (input.rating) {
       product.rating > input.rating ? (status = true) : (status = false);
     } else if (input.minPrice) {
       product.price > input?.minPrice ? (status = true) : (status = false);
     } else if (input.maxPrice) {
       product.price < input?.maxPrice ? (status = true) : (status = false);
-    } else if (input.categoryIds) {
+    } else if (input?.categoryIds?.length) {
       input.categoryIds.includes(product.categoryId)
         ? (status = true)
         : (status = false);
