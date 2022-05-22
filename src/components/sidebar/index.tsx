@@ -10,9 +10,14 @@ interface ISideBarProps {
   filters: IFilterProducts;
   updateValues: (input: any) => void;
 }
+interface IPrice {
+  min?: number;
+  max?: number;
+}
 const SideBar: React.FC<ISideBarProps> = ({ filters, updateValues }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [categories, setCategories] = useState<ICategory[]>();
+  const [price, setPrice] = useState<IPrice>({});
 
   useEffect(() => {
     setLoading(true);
@@ -71,16 +76,39 @@ const SideBar: React.FC<ISideBarProps> = ({ filters, updateValues }) => {
         <h6 className="my-2">Price range</h6>
         <Row className="mb-2">
           <Col>
-            <Form.Control type="number" placeholder="Min" />
+            <Form.Control
+              value={price?.min}
+              type="number"
+              placeholder="Min"
+              onChange={(e) =>
+                setPrice((prevState) => ({
+                  ...prevState,
+                  min: Number(e.target.value),
+                }))
+              }
+            />
           </Col>
           <Col>
-            <Form.Control type="number" placeholder="Max" />
+            <Form.Control
+              value={price?.max}
+              type="number"
+              placeholder="Max"
+              onChange={(e) =>
+                setPrice((prevState) => ({
+                  ...prevState,
+                  max: Number(e.target.value),
+                }))
+              }
+            />
           </Col>
         </Row>
         <Button
           text="Set price"
           onClick={() => {
-            return;
+            updateValues({
+              minPrice: price?.min ?? 0,
+              maxPrice: price?.max ?? 0,
+            });
           }}
           width="100%"
         />
@@ -88,17 +116,10 @@ const SideBar: React.FC<ISideBarProps> = ({ filters, updateValues }) => {
       <hr />
       <div className="rating px-5">
         <h6 className="my-2">Rating</h6>
-        <div className="d-flex align-items-center my-1">
-          <input
-            onChange={() => {
-              return;
-            }}
-            type="checkbox"
-            id={`rating`}
-          />
-          <label htmlFor={`rating`} className="">
-            <span className="custom-checkbox me-4"></span>
+        <div className="my-1">
+          <label htmlFor={`rating`} className="d-flex align-items-center">
             <StarRating rating={4.5} />
+            <span className="ms-2">above</span>
           </label>
         </div>
       </div>

@@ -74,6 +74,7 @@ const Shop = () => {
             setFavs={setFavs}
             cart={cart}
             favs={favs}
+            updateValues={updateValues}
           />
           <ImageCarousel
             activeProduct={activeProduct}

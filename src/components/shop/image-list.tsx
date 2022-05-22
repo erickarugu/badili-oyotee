@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IProduct } from "../../api/data";
 import Cards from "./cards";
 import Search from "./search/search";
@@ -14,6 +14,7 @@ interface IImageListProps {
   setCart: (input: any) => void;
   cart: number[];
   favs: number[];
+  updateValues: (input: any) => void;
 }
 
 const ImageList: React.FC<IImageListProps> = ({
@@ -25,8 +26,15 @@ const ImageList: React.FC<IImageListProps> = ({
   favs,
   setCart,
   setFavs,
+  updateValues,
 }) => {
   const [searchStr, setSearchStr] = useState<string>("");
+
+  useEffect(() => {
+    setTimeout(() => {
+      updateValues({ query: searchStr });
+    }, 1000);
+  }, [searchStr]);
 
   return (
     <ImageListWrapper className="w-100 px-4 py-3">
