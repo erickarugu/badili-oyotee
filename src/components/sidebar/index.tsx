@@ -33,7 +33,7 @@ const SideBar: React.FC<ISideBarProps> = ({ filters, updateValues }) => {
       <div className="categories ps-5">
         <h6 className="mb-2">Categories</h6>
         {loading
-          ? [...Array(5).keys()].map((el: number) => (
+          ? [1, 2, 3, 4, 5, 6, 7].map((el: number) => (
               <div key={`skel-${el}`} className="my-3 me-5">
                 <Skeleton borderRadius={"0.5rem"} />
               </div>
@@ -45,10 +45,15 @@ const SideBar: React.FC<ISideBarProps> = ({ filters, updateValues }) => {
               >
                 <input
                   onChange={() => {
-                    const temp = filters.categoryIds ?? [];
+                    let temp: number[] = filters.categoryIds ?? [];
                     const id = category.id;
+                    if (filter.categoryIds.includes(id)) {
+                      temp = temp.filter((catId: number) => catId !== id);
+                    } else {
+                      temp = [...temp, id];
+                    }
                     updateValues({
-                      categoryIds: [...temp, id],
+                      categoryIds: [...temp],
                     });
                   }}
                   type="checkbox"
