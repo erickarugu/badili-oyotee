@@ -47,7 +47,7 @@ const SideBar: React.FC<ISideBarProps> = ({ filters, updateValues }) => {
                   onChange={() => {
                     let temp: number[] = filters.categoryIds ?? [];
                     const id = category.id;
-                    if (filter.categoryIds.includes(id)) {
+                    if (temp.includes(id)) {
                       temp = temp.filter((catId: number) => catId !== id);
                     } else {
                       temp = [...temp, id];

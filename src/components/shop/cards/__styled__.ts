@@ -9,6 +9,16 @@ export const CardsWrapper = styled.div`
     border: 1px solid var(--gray);
     border-radius: 1rem;
   }
+  .no-prods {
+    .icon {
+      background: var(--red);
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  }
 `;
 export const CardWrapper = styled.div`
   flex-grow: 1;
