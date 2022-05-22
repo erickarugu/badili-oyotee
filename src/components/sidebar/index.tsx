@@ -33,7 +33,7 @@ const SideBar: React.FC<ISideBarProps> = ({ filters, updateValues }) => {
       <div className="categories ps-5">
         <h6 className="mb-2">Categories</h6>
         {loading
-          ? [1, 2, 3, 4, 5, 6, 7].map((el: number) => (
+          ? [...Array(5).keys()].map((el: number) => (
               <div key={`skel-${el}`} className="my-3 me-5">
                 <Skeleton borderRadius={"0.5rem"} />
               </div>
